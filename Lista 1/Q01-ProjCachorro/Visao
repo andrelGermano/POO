@@ -1,0 +1,43 @@
+package Visao;
+
+import Aplicacao.Cachorro;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		Cachorro c1 = new Cachorro("cachorro sem nome", "nenhuma raça definida", 0);
+		Cachorro c2 = new Cachorro();
+		
+		System.out.println("Antes da modificacao...");
+		System.out.println(c1.getNome());
+		System.out.println(c1.getRaca());
+		System.out.println(c1.getIdade());
+		
+		c1.setNome("Andre");
+		c1.setIdade(18);
+		c1.setRaca("Humano");
+		
+		System.out.println("Depois da modificação...");
+		System.out.println(c1.informarEstado());
+		
+		c2 = c1.clonarCachorro(); //Clonando o cachorro
+		
+		System.out.println("Comparando se os estados são iguais...");
+		System.out.println(c1.getNome());
+		System.out.println(c1.getRaca());
+		System.out.println(c1.getIdade());
+		System.out.println(c2.getNome());
+		System.out.println(c2.getRaca());
+		System.out.println(c2.getIdade());
+		
+		if(c1.equals(c2))
+			System.out.println("Os estados são iguais.");
+		else
+			System.out.println("Os estados não são iguais.");
+		
+		;
+
+	}
+
+}
