@@ -1,0 +1,197 @@
+package Visao;
+import java.util.Scanner;
+
+import Aplicacao.Aluno;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		int op, matricula, codNota;
+		String nome;
+		float n1, n2, n3, valorNota;
+		boolean pode=false;
+		
+		var r = new Scanner(System.in);
+		
+		Aluno a1 = new Aluno() {
+			
+		};
+		Aluno a2 = new Aluno() {
+			
+		};
+		Aluno a3 = new Aluno() {
+			
+		};
+		
+		do {
+			System.out.println("---------------------------------------");
+			System.out.println("             MENU PRINCIPAL            ");
+			System.out.println("---------------------------------------");
+			System.out.println("        1 - CADASTRAR ALUNOS           ");
+			System.out.println("        2 - CADASTRAR NOTAS            ");
+			System.out.println("        3 - CALCULAR MÉDIAS            ");
+			System.out.println("        4 - INFORMAR SITUAÇÕES         ");
+			System.out.println("        5 - INFORMAR DADOS DE UM ALUNO ");
+			System.out.println("        6 - ALTERAR NOTA               ");
+			System.out.println("        7 - SAIR                       ");
+			System.out.println("---------------------------------------");
+			System.out.println("Sua opção: ");
+			op = r.nextInt();
+			
+			switch(op) {
+				case 1: System.out.println("\n CADASTRANDO ALUNOS \n");
+					
+					System.out.println("Cadastrando aluno 1...");
+					r.nextLine();
+					System.out.println("Digite o nome: ");
+					nome = r.nextLine();
+					System.out.println("Digite a matricula");
+					matricula = r.nextInt();
+					a1.setMatricula(matricula);
+					a1.setNome(nome);
+					System.out.println("Cadastrando aluno 2...");
+					r.nextLine();
+					System.out.println("Digite o nome: ");
+					nome = r.nextLine();
+					System.out.println("Digite a matricula");
+					matricula = r.nextInt();
+					a2.setMatricula(matricula);
+					a2.setNome(nome);
+					System.out.println("Cadastrando aluno 3...");
+					r.nextLine();
+					System.out.println("Digite o nome: ");
+					nome = r.nextLine();
+					System.out.println("Digite a matricula");
+					matricula = r.nextInt();
+					a3.setMatricula(matricula);
+					a3.setNome(nome);
+
+					break;
+					
+				case 2: System.out.println("\n CADASTRANDO NOTAS \n");
+					
+					System.out.println("Aluno 1...");
+					System.out.println("Nota 1: ");
+					n1 = r.nextFloat();
+					System.out.println("Nota 2: ");
+					n2 = r.nextFloat();
+					System.out.println("Nota 3: ");
+					n3 = r.nextFloat();
+					a1.setNotas(n1, n2, n3);
+					System.out.println("Aluno 2...");
+					System.out.println("Nota 1: ");
+					n1 = r.nextFloat();
+					System.out.println("Nota 2: ");
+					n2 = r.nextFloat();
+					System.out.println("Nota 3: ");
+					n3 = r.nextFloat();
+					a2.setNotas(n1, n2, n3);
+					System.out.println("Aluno 3...");
+					System.out.println("Nota 1: ");
+					n1 = r.nextFloat();
+					System.out.println("Nota 2: ");
+					n2 = r.nextFloat();
+					System.out.println("Nota 3: ");
+					n3 = r.nextFloat();
+					a3.setNotas(n1, n2, n3);
+					pode=true;
+					
+					break;
+					
+				case 3: System.out.println("CALCULANDO MÉDIA DOS ALUNOS..");
+				
+					if(pode) {
+						System.out.println("Aluno 1...");
+						a1.calcularMedia();
+						a2.calcularMedia();
+						a3.calcularMedia();
+					}
+				
+					break;
+					
+				case 4: System.out.println("SITUAÇÃO DOS ALUNOS");
+				
+					System.out.println(a1.getNome()+": "+a1.getSituacao());
+					System.out.println(a2.getNome()+": "+a2.getSituacao());
+					System.out.println(a3.getNome()+": "+a3.getSituacao());
+				
+					break;
+					
+				case 5: System.out.println("PESQUISAR ALUNO");
+				 	
+					System.out.println("Digite a matrícula: ");
+					matricula=r.nextInt();
+					
+					if(a1.buscarAluno(matricula)) {
+						System.out.println("Nome: " + a1.getNome());
+						System.out.println("Nota 1: " + a1.getNota1());
+						System.out.println("Nota 2: " + a1.getNota2());
+						System.out.println("Nota 3: " + a1.getNota3());
+						System.out.println("Média " + a1.getMedia());
+						System.out.println("Situação: " + a1.getSituacao());
+					}else if(a2.buscarAluno(matricula)){
+						System.out.println("Nome: " + a2.getNome());
+						System.out.println("Nota 1: " + a2.getNota1());
+						System.out.println("Nota 2: " + a2.getNota2());
+						System.out.println("Nota 3: " + a2.getNota3());
+						System.out.println("Média " + a2.getMedia());
+						System.out.println("Situação: " + a2.getSituacao());
+					}else if(a3.buscarAluno(matricula)) {
+						System.out.println("Nome: " + a3.getNome());
+						System.out.println("Nota 1: " + a3.getNota1());
+						System.out.println("Nota 2: " + a3.getNota2());
+						System.out.println("Nota 3: " + a3.getNota3());
+						System.out.println("Média " + a3.getMedia());
+						System.out.println("Situação: " + a3.getSituacao());
+					}else{
+						System.out.println("A matrícula não corresponde a nenhum aluno");
+					}
+					
+					break;
+					
+				case 6: System.out.println("ALTERAR NOTA");
+				
+					System.out.println("Digite a matrícula: ");
+					matricula=r.nextInt();
+					
+					if(a1.buscarAluno(matricula)) {
+						
+						System.out.println("Digite qual nota deseja alterar (1, 2, ou 3): ");
+						codNota=r.nextInt();
+						System.out.println("Digite a nova nota: ");
+						valorNota=r.nextFloat();
+						
+						a1.alterarNota(codNota, valorNota);
+						System.out.println("Nova situação do aluno: " + a1.getSituacao());
+						
+					}else if(a2.buscarAluno(matricula)){
+						
+						System.out.println("Digite qual nota deseja alterar (1, 2, ou 3): ");
+						codNota=r.nextInt();
+						System.out.println("Digite a nova nota: ");
+						valorNota=r.nextFloat();
+						
+						a2.alterarNota(codNota, valorNota);
+						System.out.println("Nova situação do aluno: " + a2.getSituacao());
+						
+					}else if(a3.buscarAluno(matricula)) {
+						
+						System.out.println("Digite qual nota deseja alterar (1, 2, ou 3): ");
+						codNota=r.nextInt();
+						System.out.println("Digite a nova nota: ");
+						valorNota=r.nextFloat();
+						
+						a3.alterarNota(codNota, valorNota);
+						System.out.println("Nova situação do aluno: " + a3.getSituacao());
+						
+					}else{
+						System.out.println("A matrícula não corresponde a nenhum aluno");
+					}
+					
+					break;
+			}
+			
+			
+		}while(op!=7);
+	}
+}
