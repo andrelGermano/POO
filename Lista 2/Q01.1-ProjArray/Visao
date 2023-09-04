@@ -1,0 +1,49 @@
+package visao;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		int op, i, somaA=0;
+		Scanner r = new Scanner(System.in);
+		ArrayList<Integer> A = new ArrayList<Integer>();
+		ArrayList<Integer> B = new ArrayList<Integer>();
+		
+		System.out.println("Lendo A...");
+		i=0;
+		do {
+			System.out.println("A[" + i + "]: ");
+			A.add(r.nextInt());
+			somaA+=A.get(i);
+			i++;
+			do {
+				System.out.println("Continuar? 1 - SIM / 2 - NÃO: ");
+				op=r.nextInt();
+			}while(op!=1&&op!=2);
+		}while(op!=2);
+		
+		System.out.println("Lendo B...");
+		i=0;
+		do {
+			System.out.println("A[" + i + "]: ");
+			B.add(r.nextInt());
+			i++;
+			do {
+				System.out.println("Continuar? 1 - SIM / 2 - NÃO: ");
+				op=r.nextInt();
+			}while(op!=1&&op!=2);
+		}while(op!=2);
+		
+		System.out.println("Soma dos elementos de A: " + somaA);
+		
+		if(A.size()==B.size()) {
+			ArrayList<Integer> C = new ArrayList<Integer>();
+			for(i=0;i<A.size();i++) {
+				C.add(A.get(i)+B.get(i));
+			}
+			System.out.println("Vetor C contendo soma dos elementos de A e B: " + C);
+		}
+	}
+}
