@@ -37,11 +37,7 @@ public class Aluno {
 		
 	}
 	public boolean buscarAluno(int matricula) {
-		if(this.matricula==matricula)
-			return true;
-		else
-			return false;
-		
+		return(this.matricula==matricula);
 	}
 	public String getNome() {
 		return nome;
