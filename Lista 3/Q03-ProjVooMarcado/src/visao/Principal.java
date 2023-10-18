@@ -172,8 +172,5 @@ public class Principal {
                 default: System.out.println("Código inválido");
             }
         }while(op!=8);
-
     }
-
-
 }
