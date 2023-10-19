@@ -39,7 +39,7 @@ public class Principal{
                     if(aux=='C'){
                         for(i=0; i<E.retornaArray().size(); i++){
                             if(E.retornaArray().get(i) instanceof C){
-                                C c = (C) E.retornaArray().get(i);
+                                C c = (C) E.retornaElemento(i);
                                 System.out.println(c.getC1());
                                 System.out.println(c.retornaMais10());
                                 System.out.println(c.retornaClasse());
@@ -80,14 +80,14 @@ public class Principal{
                             System.out.println(c.I1());
                             System.out.println(c.I2());
                         }else if(E.retornaArray().get(i) instanceof D){
-                            D d = (D) E.retornaArray().get(i);
+                            D d = (D) E.retornaElemento(i);
                             System.out.println(d.getD1());
                             System.out.println(d.retornaClasse());
                             System.out.println(d.retornaMais10());
                             System.out.println(d.I1());
                             System.out.println(d.I2());
                         }else if(E.retornaArray().get(i) instanceof B){
-                            B b = (B) E.retornaArray().get(i);
+                            B b = (B) E.retornaElemento(i);
                             System.out.println(b.getB1());
                             System.out.println(b.retornaMais10());
                             System.out.println(b.retornaClasse());
